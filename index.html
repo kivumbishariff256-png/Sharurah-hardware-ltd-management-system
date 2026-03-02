@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharurah Hardware Ltd - Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-tools"></i> Sharurah Hardware</h2>
+                <p>Management System</p>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" data-page="inventory"><i class="fas fa-boxes"></i> Inventory</a></li>
+                    <li><a href="#" data-page="sales"><i class="fas fa-shopping-cart"></i> Sales</a></li>
+                    <li><a href="#" data-page="customers"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="#" data-page="payments"><i class="fas fa-credit-card"></i> Payments</a></li>
+                    <li><a href="#" data-page="accounting"><i class="fas fa-calculator"></i> Accounting</a></li>
+                    <li><a href="#" data-page="reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                    <li><a href="#" data-page="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="btn btn-sm" id="toggleSidebar"><i class="fas fa-bars"></i></button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search products, customers, orders...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">A</div>
+                        <div>
+                            <strong>Admin User</strong>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Total Products</h4>
+                            <div class="value">1,234</div>
+                            <div class="trend up"><i class="fas fa-arrow-up"></i> 12% from last month</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Total Sales</h4>
+                            <div class="value">UGX 45.2M</div>
+                            <div class="trend up"><i class="fas fa-arrow-up"></i> 8% from last month</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Customers</h4>
+                            <div class="value">567</div>
+                            <div class="trend up"><i class="fas fa-arrow-up"></i> 5% from last month</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Low Stock</h4>
+                            <div class="value">23</div>
+                            <div class="trend down"><i class="fas fa-arrow-down"></i> Needs attention</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders and Activity -->
+                <div class="form-row">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-shopping-cart"></i> Recent Orders</h3>
+                            <a href="#" class="btn btn-sm btn-primary" data-page="sales">View All</a>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Order #</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SHH20240115001</td>
+                                        <td>John Doe</td>
+                                        <td>UGX 250,000</td>
+                                        <td><span class="badge badge-success">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SHH20240115002</td>
+                                        <td>Jane Smith</td>
+                                        <td>UGX 180,000</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SHH20240115003</td>
+                                        <td>Bob Johnson</td>
+                                        <td>UGX 320,000</td>
+                                        <td><span class="badge badge-success">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SHH20240115004</td>
+                                        <td>Alice Williams</td>
+                                        <td>UGX 95,000</td>
+                                        <td><span class="badge badge-info">Processing</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bell"></i> Recent Activity</h3>
+                        </div>
+                        <div class="activity-feed">
+                            <div class="activity-item">
+                                <div class="activity-icon blue">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>New Order Created</h4>
+                                    <p>Order #SHH20240115005 created by Admin</p>
+                                    <div class="activity-time">2 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon green">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Payment Received</h4>
+                                    <p>UGX 250,000 received via MTN Mobile Money</p>
+                                    <div class="activity-time">5 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon orange">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Stock Updated</h4>
+                                    <p>50 units of Toilet Seat added to inventory</p>
+                                    <div class="activity-time">10 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon red">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>New Customer Added</h4>
+                                    <p>Customer Mary Johnson registered</p>
+                                    <div class="activity-time">15 minutes ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-line"></i> Sales Overview</h3>
+                        <select class="form-control" style="width: auto;">
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Page -->
+            <div id="inventory-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-boxes"></i> Inventory Management</h3>
+                        <button class="btn btn-primary" id="addProductBtn"><i class="fas fa-plus"></i> Add Product</button>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="productSearch" placeholder="Search products by name, code, or barcode...">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="1">Laps</option>
+                            <option value="2">Mixer</option>
+                            <option value="3">Toilet</option>
+                            <option value="4">Basins</option>
+                            <option value="5">Bathroom Cabinet</option>
+                        </select>
+                        <button id="searchProductBtn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="table-container">
+                        <table id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Stock</th>
+                                    <th>Unit Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="productsPagination">
+                        <!-- Pagination will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Page -->
+            <div id="sales-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-shopping-cart"></i> Sales Management</h3>
+                        <button class="btn btn-primary" id="newSaleBtn"><i class="fas fa-plus"></i> New Sale</button>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="orderSearch" placeholder="Search orders by number or customer...">
+                        <select id="orderStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button id="searchOrderBtn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="table-container">
+                        <table id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="ordersPagination">
+                        <!-- Pagination will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Page -->
+            <div id="customers-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-users"></i> Customer Management</h3>
+                        <button class="btn btn-primary" id="addCustomerBtn"><i class="fas fa-plus"></i> Add Customer</button>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="customerSearch" placeholder="Search customers by name or phone...">
+                        <button id="searchCustomerBtn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="table-container">
+                        <table id="customersTable">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Type</th>
+                                    <th>Balance</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTableBody">
+                                <!-- Customers will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="customersPagination">
+                        <!-- Pagination will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payments Page -->
+            <div id="payments-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-credit-card"></i> Payment Management</h3>
+                        <button class="btn btn-primary" id="newPaymentBtn"><i class="fas fa-plus"></i> New Payment</button>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Completed</h4>
+                                <div class="value">UGX 32.5M</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Pending</h4>
+                                <div class="value">UGX 8.2M</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Mobile Money</h4>
+                                <div class="value">UGX 25.8M</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon red">
+                                <i class="fas fa-money-bill"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Cash</h4>
+                                <div class="value">UGX 14.9M</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="paymentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Payment #</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentsTableBody">
+                                <!-- Payments will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accounting Page -->
+            <div id="accounting-page" class="page-content" style="display: none;">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Total Revenue</h4>
+                            <div class="value">UGX 45.2M</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Total Expenses</h4>
+                            <div class="value">UGX 12.8M</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Net Profit</h4>
+                            <div class="value">UGX 32.4M</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h4>Pending</h4>
+                            <div class="value">UGX 8.2M</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-invoice"></i> Recent Journal Entries</h3>
+                            <button class="btn btn-sm btn-primary">New Entry</button>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Entry #</th>
+                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Debit</th>
+                                        <th>Credit</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JE20240115001</td>
+                                        <td>2024-01-15</td>
+                                        <td>Sales</td>
+                                        <td>UGX 250,000</td>
+                                        <td>UGX 250,000</td>
+                                        <td><span class="badge badge-success">Posted</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JE20240115002</td>
+                                        <td>2024-01-15</td>
+                                        <td>Payment</td>
+                                        <td>UGX 180,000</td>
+                                        <td>UGX 180,000</td>
+                                        <td><span class="badge badge-success">Posted</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-receipt"></i> Recent Expenses</h3>
+                            <button class="btn btn-sm btn-primary">Add Expense</button>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Expense #</th>
+                                        <th>Date</th>
+                                        <th>Category</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>EXP20240115001</td>
+                                        <td>2024-01-15</td>
+                                        <td>Utilities</td>
+                                        <td>UGX 150,000</td>
+                                        <td><span class="badge badge-success">Approved</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>EXP20240115002</td>
+                                        <td>2024-01-14</td>
+                                        <td>Transport</td>
+                                        <td>UGX 85,000</td>
+                                        <td><span class="badge badge-warning">Pending</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Page -->
+            <div id="reports-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Reports</h3>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card" style="cursor: pointer;">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Inventory Report</h4>
+                                <p>View stock levels and movements</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="cursor: pointer;">
+                            <div class="stat-icon green">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Sales Report</h4>
+                                <p>View sales performance and trends</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="cursor: pointer;">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Customer Report</h4>
+                                <p>View customer analytics</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="cursor: pointer;">
+                            <div class="stat-icon red">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Financial Report</h4>
+                                <p>View profit and loss statements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div id="settings-page" class="page-content" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-cog"></i> System Settings</h3>
+                    </div>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Company Name</label>
+                                <input type="text" value="Sharurah Hardware Ltd">
+                            </div>
+                            <div class="form-group">
+                                <label>Company Phone</label>
+                                <input type="text" value="0773586844">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>MTN Phone Number</label>
+                                <input type="text" value="0773586844">
+                            </div>
+                            <div class="form-group">
+                                <label>Airtel Phone Number</label>
+                                <input type="text" value="0704467880">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tax Rate (%)</label>
+                                <input type="number" value="18">
+                            </div>
+                            <div class="form-group">
+                                <label>Currency</label>
+                                <select>
+                                    <option value="UGX">UGX - Ugandan Shilling</option>
+                                    <option value="USD">USD - US Dollar</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Receipt Footer</label>
+                            <textarea rows="3">Thank you for shopping with Sharurah Hardware Ltd!</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Code *</label>
+                            <input type="text" name="product_code" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Name *</label>
+                            <input type="text" name="product_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select name="category_id" required>
+                                <option value="">Select Category</option>
+                                <option value="1">Laps</option>
+                                <option value="2">Mixer</option>
+                                <option value="3">Toilet</option>
+                                <option value="4">Basins</option>
+                                <option value="5">Bathroom Cabinet</option>
+                                <option value="6">Sinks</option>
+                                <option value="7">Pedestal Basins</option>
+                                <option value="8">Shataf</option>
+                                <option value="9">Shower Mixer</option>
+                                <option value="10">Squatting Toilet Pan</option>
+                                <option value="11">Soap Dish</option>
+                                <option value="12">Tooth Brush Holder</option>
+                                <option value="13">TP Holder</option>
+                                <option value="14">Instant Water Heater</option>
+                                <option value="15">Concealed Toilet</option>
+                                <option value="16">Angle Value</option>
+                                <option value="17">Mirror</option>
+                                <option value="18">PPR Machine</option>
+                                <option value="19">Toilet Seat</option>
+                                <option value="20">Wall Mount</option>
+                                <option value="21">Water Meter</option>
+                                <option value="22">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Supplier</label>
+                            <select name="supplier_id">
+                                <option value="">Select Supplier</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Unit Price (UGX) *</label>
+                            <input type="number" name="unit_price" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cost Price (UGX) *</label>
+                            <input type="number" name="cost_price" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Initial Stock *</label>
+                            <input type="number" name="quantity_in_stock" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Reorder Level</label>
+                            <input type="number" name="reorder_level" value="10">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Unit of Measure</label>
+                            <select name="unit_of_measure">
+                                <option value="pcs">Pieces</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="liters">Liters</option>
+                                <option value="sets">Sets</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <input type="text" name="brand">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Barcode</label>
+                        <input type="text" name="barcode">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger modal-close">Cancel</button>
+                <button class="btn btn-primary" id="saveProductBtn">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Sale Modal -->
+    <div class="modal" id="newSaleModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3>New Sale</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newSaleForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Customer *</label>
+                            <select name="customer_id" required>
+                                <option value="">Select Customer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Payment Method *</label>
+                            <select name="payment_method" required>
+                                <option value="cash">Cash</option>
+                                <option value="mtn_mobile_money">MTN Mobile Money</option>
+                                <option value="airtel_money">Airtel Money</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                                <option value="credit">Credit</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Add Products</h4>
+                            <button type="button" class="btn btn-sm btn-primary" id="addProductToSale">Add Product</button>
+                        </div>
+                        <div class="table-container">
+                            <table id="saleProductsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="saleProductsTableBody">
+                                    <!-- Products will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Subtotal</label>
+                            <input type="text" id="saleSubtotal" readonly value="UGX 0.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Discount (UGX)</label>
+                            <input type="number" id="saleDiscount" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Tax (18%)</label>
+                            <input type="text" id="saleTax" readonly value="UGX 0.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Total</label>
+                            <input type="text" id="saleTotal" readonly value="UGX 0.00">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea name="notes" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger modal-close">Cancel</button>
+                <button class="btn btn-primary" id="saveSaleBtn">Complete Sale</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal" id="addCustomerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Customer</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addCustomerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="text" name="phone_number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Customer Type *</label>
+                            <select name="customer_type" required>
+                                <option value="retail">Retail</option>
+                                <option value="wholesale">Wholesale</option>
+                                <option value="corporate">Corporate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Credit Limit (UGX)</label>
+                            <input type="number" name="credit_limit" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea name="address" rows="2"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city">
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" name="country" value="Uganda">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger modal-close">Cancel</button>
+                <button class="btn btn-primary" id="saveCustomerBtn">Save Customer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Payment Modal -->
+    <div class="modal" id="newPaymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Process Payment</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newPaymentForm">
+                    <div class="form-group">
+                        <label>Customer *</label>
+                        <select name="customer_id" required>
+                            <option value="">Select Customer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Order (Optional)</label>
+                        <select name="order_id">
+                            <option value="">Select Order</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount (UGX) *</label>
+                        <input type="number" name="amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Method *</label>
+                        <div class="payment-methods">
+                            <div class="payment-method cash" data-method="cash">
+                                <i class="fas fa-money-bill"></i>
+                                <span>Cash</span>
+                            </div>
+                            <div class="payment-method mtn" data-method="mtn_mobile_money">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>MTN Mobile Money</span>
+                            </div>
+                            <div class="payment-method airtel" data-method="airtel_money">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Airtel Money</span>
+                            </div>
+                            <div class="payment-method bank" data-method="bank_transfer">
+                                <i class="fas fa-university"></i>
+                                <span>Bank Transfer</span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="payment_method" id="selectedPaymentMethod">
+                    </div>
+                    <div class="form-group" id="phoneNumberGroup" style="display: none;">
+                        <label>Phone Number *</label>
+                        <input type="text" name="phone_number" placeholder="07XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Transaction Reference</label>
+                        <input type="text" name="transaction_reference">
+                    </div>
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea name="notes" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger modal-close">Cancel</button>
+                <button class="btn btn-primary" id="savePaymentBtn">Process Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
